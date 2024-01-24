@@ -2,32 +2,34 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class Location {
+public abstract class JobField {
+    protected int id;
+    protected static int nextId = 1;
+    protected String value;
 
-    private int id;
-    private static int nextId = 1;
-    private String value;
-
-    public Location() {
+    public JobField() {
         id = nextId;
         nextId++;
     }
 
-    public Location (String value) {
+    public JobField(String value) {
         this();
         this.value = value;
     }
+
+    // Custom toString, equals, and hashCode methods:
 
     @Override
     public String toString() {
         return value;
     }
+
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
         if (this == o) return true;
-        if (!(o instanceof Location)) return false;
-        Location location = (Location) o;
-        return getId() == location.getId();
+        if (!(o instanceof JobField)) return false;
+        JobField jobField = (JobField) o;
+        return getId() == jobField.getId();
     }
 
     @Override
@@ -48,5 +50,4 @@ public class Location {
     public void setValue(String value) {
         this.value = value;
     }
-
 }
