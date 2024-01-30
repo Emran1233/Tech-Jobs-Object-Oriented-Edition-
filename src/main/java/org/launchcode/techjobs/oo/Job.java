@@ -92,26 +92,33 @@ public class Job {
 
     @Override
     public String toString() {
-        return "\n" +
-                "ID: " + id +
-                "\nName: " + name +
-                "\nEmployer: " + employer.getValue() + //getValue()
-                "\nLocation: " + location.getValue() +
-                "\nPosition Type: " + positionType.getValue() +
-                "\nCore Competency: " + coreCompetency.getValue() +
-                "\n";
+        String dan = "Data not available";
+        if (name == null || name == "") {
+            name = dan;
+        }
+        if (employer == null || employer.getValue() == "") {
+            employer.setValue(dan);
+        }
+        if(location == null || location.getValue() ==""){
+            location.setValue(dan);
+        }
+        if (positionType == null || positionType.getValue() ==""){
+            positionType.setValue(dan);
+        }
+        if(coreCompetency == null || coreCompetency.getValue() == ""){
+            coreCompetency.setValue(dan);
+        }
+        return "\n" + "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n";
     }
+
 }
 
 
 
-    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
-    //  other five fields. The second constructor should also call the first in order to initialize
-    //  the 'id' field.
 
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
-
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
 
