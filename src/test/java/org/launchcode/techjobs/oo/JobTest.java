@@ -3,7 +3,7 @@ package org.launchcode.techjobs.oo;
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
@@ -12,11 +12,11 @@ import java.util.Arrays;
 
 
 public class JobTest {
-    @Before
-    public void createJobObjects() {
-        Job emptyJob1 = new Job();
-        Job emptyJob2 = new Job();
-}
+//    @Before
+  //  public void createJobObjects() {
+   //     Job emptyJob1 = new Job();
+     //   Job emptyJob2 = new Job();
+
 
 
         @Test
@@ -26,11 +26,11 @@ public class JobTest {
             new Job();
             new Job();
             assertNotEquals(job1.getId(), job2.getId());
-
+        }
             @Test
             public void testJobConstructorSetsAllFields() {
                 Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-                assertTrue(testJob instanceof Job); }
+                assertTrue(testJob instanceof Job);
                 assertEquals("Product tester", testJob.getName());
                 assertTrue(testJob.getEmployer() instanceof Employer);
                 assertEquals("ACME", testJob.getEmployer().getValue());
@@ -81,7 +81,6 @@ public class JobTest {
                 assertEquals(job.toString(), answer);
             }
 }
-
 
 
 
